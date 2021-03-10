@@ -1,8 +1,7 @@
-## Intro
-* Superset van JS = uitbreiding en nieuwe syntax
-* Wordt naar JS gecompiled zodat browsers het kunnen lezen
-* Strict types: type permanent aan var linken
-* Helpt debugging en errors te voorkomen
+## TS compilen naar JS
+`tsc sandbox.ts sandbox.js`
+Als beide bestanden dezelfde naam hebben, mag je tweede argument weglaten
 
-### Typescript compiler
-`npm install -g typescript`
+### Automatisch compilen
+`tsc sandbox.ts -w`
+Activeert watch mode
