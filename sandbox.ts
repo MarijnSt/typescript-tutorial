@@ -1,15 +1,20 @@
-let charachter = 'Marijn';
-let age = 28;
-let isBlackBelt = false;
+// arrays
+let names = ['luigi', 'mario', 'yoshi']
+names.push('toad')
+// names.push(3)
 
-// charachter = 12;
-charachter = 'Luigi';
-age = 35;
-isBlackBelt = true;
+let mixed = ['marijn', 21]
+mixed.push('josken')
+mixed.push(3)
 
 
-const circ = (diameter: number) => {
-    return diameter * Math.PI
+
+// objects
+let ninja = {
+    name: 'marijn',
+    belt: 'black',
+    age: 23
 }
 
-console.log(circ(3))
+ninja.name = 'Mario'
+// ninja.skills = ['alles', 'niets']

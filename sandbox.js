@@ -1,11 +1,15 @@
-var charachter = 'Marijn';
-var age = 28;
-var isBlackBelt = false;
-// charachter = 12;
-charachter = 'Luigi';
-age = 35;
-isBlackBelt = true;
-var circ = function (diameter) {
-    return diameter * Math.PI;
+// arrays
+var names = ['luigi', 'mario', 'yoshi'];
+names.push('toad');
+// names.push(3)
+var mixed = ['marijn', 21];
+mixed.push('josken');
+mixed.push(3);
+// objects
+var ninja = {
+    name: 'marijn',
+    belt: 'black',
+    age: 23
 };
-console.log(circ(3));
+ninja.name = 'Mario';
+// ninja.skills = ['alles', 'niets']
