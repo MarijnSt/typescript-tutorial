@@ -1,25 +1,66 @@
-Grotere projecten hebben een betere structuur nodig aangezien je meerdere ts en js bestanden in verschillende folders zal hebben
-
-tsconfig.json geeft je de mogelijkheid om je project te structureren en genereer je via de console:
-`tsc --init``
-
-### Root en output folder instellen
-```
-"outDir": "./public",
-"rootDir": "./src",
+## Functie declareren
+```javascript
+let greet: Function
+greet = () => {
+    console.log('ieps')
+}
 ```
 
-Compile command in console is nu
+## Optioneel parameter
+```javascript
+let add: Function
+const add = (a: number, b: number, c?: number | string) => {
+    console.log(a + b)
+    console.log(c)
+}
 
-`tsc`
+add(5, 6)
+```
+* Print 11 en undefined
 
-of
 
-`tsc -w'
+## Default value
+```javascript
+let add: Function
+const add = (a: number, b: number, c: number | string = 10) => {
+    console.log(a + b)
+    console.log(c)
+}
 
-### Bestanden buiten root folder
-Wanneer je op project root een ts bestand maakt, zal dit ook gecompileerd worden naar je output folder, ookal gaf je een andere root folder aan.
+add(5, 6)
+```
+* Print 11 en 10
 
-Extra optie in config toevoegen om dit te voorkomen:
+## Return type
+```javascript
+const minus = (a: number, b:number) => {
+    return a - b
+}
 
-`"include": ["src"]`
+let result = minus(3,1)
+result = 'marijn'
+```
+Aanpassing van result zal een error geven want het neemt automatisch het type van de return in de functie over
+
+Aangeven welk type return heeft in functie:
+```javascript
+const minus = (a: number, b:number): number => {
+    return a - b
+}
+```
+Handig als extra controle of om snel aan te duiden voor andere devs wat functie terug geeft
+
+## Void
+```javascript
+const add = (a: number, b: number, c: number | string = 10) => {
+    console.log(a + b)
+    console.log(c)
+}
+```
+Geeft technisch gezien wel een waarde terug: **void**
+```javascript
+const add = (a: number, b: number, c: number | string = 10): void => {
+    console.log(a + b)
+    console.log(c)
+}
+```
