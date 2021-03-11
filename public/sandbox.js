@@ -9,3 +9,8 @@ var add = function (a, b, c) {
     console.log(c);
 };
 add(5, 6);
+var minus = function (a, b) {
+    return a - b;
+};
+var result = minus(3, 1);
+// result = 'marijn'
