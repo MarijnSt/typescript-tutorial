@@ -1,22 +1,45 @@
+## Explicit Types
+Hoe geef je type aan een variabele die je zonder waarde declareerde?
+```javascript
+let charachter: string
+let age: number
+let loggedIn: boolean
+```
+
 ## Arrays
 ```javascript
-let names = ['luigi', 'mario', 'yoshi']
-names.push('toad')
-names.push(3)
+let ninja: string[]
+let ninja: string[] = []
 ```
-* TS geeft error op laatste push
-* Geen mixed array gedeclareerd dus alles moet hetzelfde type zijn
+* Eerste wijst type van array met strings toe aan var
+* Maakt er geen lege array van dus push method zal niet werken
+* Een lege array initialiseren doe je dus op de tweede manier
+
+## Union Types
+Je kan meerdere types toewijzen aan var/array dankzij union types
+```javascript
+let mixed: (string|number|boolean)[] = []
+mixed.push('marijn')
+mixed.push(23)
+mixed.push(true)
+console.log(mixed)
+
+let uid: (string|boolean)
+```
 
 ## Objects
 ```javascript
-let ninja = {
+let ninjaOne: object
+ninjaOne = {
     name: 'marijn',
-    belt: 'black',
     age: 23
 }
 
-ninja.name = 'Mario'
-ninja.skills = ['alles', 'niets']
+let ninjaTwo: {
+    name: string,
+    age: number,
+    beltColor: string
+}
 ```
-* Je kan properties aanpassen zolang je in hetzelfde type blijft
-* Je kan geen properties meer toevoegen nadat je object hebt gedeclareerd
+* ninjaOne: object type toekennen zonder properties een type te geven
+* ninjaTwo: object type, properties en hun type toekennen 

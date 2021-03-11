@@ -1,15 +1,21 @@
+// explicit type
+var charachter;
+var age;
+var loggedIn;
+age = 24;
 // arrays
-var names = ['luigi', 'mario', 'yoshi'];
-names.push('toad');
-// names.push(3)
-var mixed = ['marijn', 21];
-mixed.push('josken');
-mixed.push(3);
-// objects
-var ninja = {
+// let ninja: string[]
+var ninja = [];
+// mixed array via union type
+var mixed = [];
+mixed.push('marijn');
+mixed.push(23);
+mixed.push(true);
+console.log(mixed);
+// object
+var ninjaOne;
+ninjaOne = {
     name: 'marijn',
-    belt: 'black',
     age: 23
 };
-ninja.name = 'Mario';
-// ninja.skills = ['alles', 'niets']
+var ninjaTwo;

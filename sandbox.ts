@@ -1,20 +1,31 @@
+// explicit type
+let charachter: string
+let age: number
+let loggedIn: boolean
+
+age = 24
+
 // arrays
-let names = ['luigi', 'mario', 'yoshi']
-names.push('toad')
-// names.push(3)
+// let ninja: string[]
+let ninja: string[] = []
 
-let mixed = ['marijn', 21]
-mixed.push('josken')
-mixed.push(3)
+// mixed array via union type
+let mixed: (string|number|boolean)[] = []
+mixed.push('marijn')
+mixed.push(23)
+mixed.push(true)
+console.log(mixed)
 
 
-
-// objects
-let ninja = {
+// object
+let ninjaOne: object
+ninjaOne = {
     name: 'marijn',
-    belt: 'black',
     age: 23
 }
 
-ninja.name = 'Mario'
-// ninja.skills = ['alles', 'niets']
+let ninjaTwo: {
+    name: string,
+    age: number,
+    beltColor: string
+}
