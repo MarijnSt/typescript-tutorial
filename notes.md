@@ -1,27 +1,44 @@
-## Probleem
-```javascript
-const logDetails = (uid: string | number, item: string) => {
-    console.log(`${item} has a uid of ${uid}`)
-}
+Function signature
 
-const greet = (user: {name: string, uid: string | number}) => {
-    console.log(`${user.name} says hello!`)
+Beschrijft structuur van een functie: welke parameters, welke waarde er terug wordt gegeven
+
+### Voorbeeld 1
+```javascript
+() => void
+```
+Geen parameters, functie returnt void
+
+### Voorbeeld 2
+```javascript
+let greet: (a: string, b: string) => void
+
+greet = (name: string, greeting: string) => {
+    console.log(`${name} says ${greeting}`)
 }
 ```
-Een bestand wordt al snel rommelig met veel herhalingen als je alle parameters van een functie zo noteert
+* Function signature greet = twee strings als parameter, geeft void terug
+* Greet declareren: moet overeen komen met signature
 
-## Type aliases
-Je kan types declareren:
+### Voorbeeld 3
 ```javascript
-type stringOrNum = string | number;
-type objWithName = {name: string, uid: stringOrNum};
+let calc: (a: number, b: number, c: string) => number
 
-const logDetails = (uid: stringOrNum, item: string) => {
-    console.log(`${item} has a uid of ${uid}`);
-}
-
-const greet = (user: objWithName) => {
-    console.log(`${user.name} says hello!`);
+calc = (numOne: number, numTwo: number, action: string) => {
+    if (action === 'add') {
+        return numOne + numTwo
+    } else {
+        return numOne - numTwo
+    }
 }
 ```
-Document blijft zo een pak overzichtelijker als je meerdere functies hebt met uitgebreide parameters
+* Zonder else functie geeft het een error want je returnt geen getal
+
+### Voorbeeld 4
+Met type alias:
+```javascript
+let logDetails: (obj: {name: string, age: number}) => void;
+type person = {name: string, age: number};
+logDetails = (ninja: person) => {
+    console.log(`${ninja.name} is ${ninja.age} years old`)
+}
+```
