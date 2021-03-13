@@ -1,10 +1,13 @@
 "use strict";
 // class declareren
 var Invoice = /** @class */ (function () {
-    function Invoice(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
+    // readonly client: string
+    // private details: string
+    // public amount: number
+    function Invoice(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
     }
     Invoice.prototype.format = function () {
         return this.client + " owes " + this.amount + " for " + this.details;
@@ -14,16 +17,14 @@ var Invoice = /** @class */ (function () {
 // objecten aanmaken via class
 var invOne = new Invoice('mario', 'webdev', 250);
 var invTwo = new Invoice('luigi', 'dev', 300);
-console.log(invOne, invTwo);
 // objecten opslaan in array
 var invoices = [];
 invoices.push(invOne);
 invoices.push(invTwo);
-console.log(invoices);
-// waardes van properties aanpassen
-invOne.client = 'yoshi';
-invTwo.amount = 200;
-console.log(invOne, invTwo);
+invoices.forEach(function (inv) {
+    // inv.client = 'marijn'
+    console.log(inv.client, inv.amount, inv.format());
+});
 var form = document.querySelector('.new-item-form');
 console.log(form.children);
 // inputs

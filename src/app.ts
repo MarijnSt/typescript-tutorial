@@ -1,14 +1,14 @@
 // class declareren
 class Invoice {
-    client: string
-    details: string
-    amount: number
+    // readonly client: string
+    // private details: string
+    // public amount: number
 
-    constructor (c: string, d: string, a: number) {
-        this.client = c
-        this.details = d
-        this.amount = a
-    }
+    constructor (
+        readonly client: string,
+        private details: string,
+        public amount: number
+    ){}
 
     format() {
         return `${this.client} owes ${this.amount} for ${this.details}`
@@ -18,18 +18,16 @@ class Invoice {
 // objecten aanmaken via class
 const invOne = new Invoice('mario', 'webdev', 250)
 const invTwo = new Invoice('luigi', 'dev', 300)
-console.log(invOne, invTwo)
 
 // objecten opslaan in array
 let invoices: Invoice[] = []
 invoices.push(invOne)
 invoices.push(invTwo)
-console.log(invoices)
 
-// waardes van properties aanpassen
-invOne.client = 'yoshi'
-invTwo.amount = 200
-console.log(invOne, invTwo)
+invoices.forEach(inv => {
+    // inv.client = 'marijn'
+    console.log(inv.client, inv.amount, inv.format())
+})
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement
 console.log(form.children)
