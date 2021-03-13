@@ -1,45 +1,30 @@
-//interface
-interface isPerson {
-    name: string,
-    age: number,
-    speak (a: string): void
-    spend (a: number): number
-}
-
-const me: isPerson = {
-    name: 'Marijn',
-    age: 28,
-    speak (text: string): void {
-        console.log(text)
-    },
-    spend (amount: number): number {
-        console.log('I spent', amount)
-        return amount
-    }
-}
-
-let diejen: isPerson
-
-const greetPerson = (person: isPerson) => {
-    console.log('Hello', person.name)
-}
-
-greetPerson(me)
-
 import {Invoice} from './classes/Invoice.js'
+import {Payment} from './classes/Payment.js'
+import { HasFormatter } from './interfaces/HasFormatter.js'
+
+// let docOne: HasFormatter
+// let docTwo: HasFormatter
+
+// docOne = new Invoice ('yoshi', 'webdev', 250)
+// docTwo = new Payment ('mario', 'plumbing', 200)
+
+// let docs: HasFormatter[] = []
+// docs.push(docOne)
+// docs.push(docTwo)
+// console.log(docs)
 
 // objecten aanmaken via class
-const invOne = new Invoice('mario', 'webdev', 250)
-const invTwo = new Invoice('luigi', 'dev', 300)
+// const invOne = new Invoice('mario', 'webdev', 250)
+// const invTwo = new Invoice('luigi', 'dev', 300)
 
 // objecten opslaan in array
-let invoices: Invoice[] = []
-invoices.push(invOne)
-invoices.push(invTwo)
+// let invoices: Invoice[] = []
+// invoices.push(invOne)
+// invoices.push(invTwo)
 
-invoices.forEach(inv => {
-    console.log(inv.client, inv.amount, inv.format())
-})
+// invoices.forEach(inv => {
+//     console.log(inv.client, inv.amount, inv.format())
+// })
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement
 console.log(form.children)
@@ -52,8 +37,14 @@ const amount = document.querySelector('#amount') as HTMLInputElement
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    console.log(type.value)
-    console.log(toFrom.value)
-    console.log(details.value)
-    console.log(amount.valueAsNumber)
+
+    let doc: HasFormatter
+
+    if (type.value === 'invoice') {
+        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber)
+    } else {
+        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber)
+    }
+
+    console.log(doc)
 })

@@ -1,42 +1,33 @@
-## Verschillen met class
-* Wordt niet gebruikt om een object te genereren
-* Wordt gebruikt om structuur te geven aan object of class
-
+### Interface HasFormatter.ts
 ```javascript
-interface isPerson {
-    name: string,
-    age: number,
-    speak (a: string): void
-    spend (a: number): number
+export interface HasFormatter {
+    format (): string
 }
 ```
-Wanneer je een variabele maakt met type isPerson, moet die voldoen aan de gegeven properties en methods 
+* In de interface definiëer je alle props en methods dat de var, die de interface implementeert, minstens moet hebben
+* Hier enkel format method verplicht
 
-### Voorbeelden
-Interface op object toepassen
+### Interface implementeren in class Invoice.ts
 ```javascript
-const me: isPerson = {
-    name: 'Marijn',
-    age: 28,
-    speak (text: string): void {
-        console.log(text)
-    },
-    spend (amount: number): number {
-        console.log('I spent', amount)
-        return amount
+import {HasFormatter} from '../interfaces/HasFormatter.js'
+
+export class Invoice implements HasFormatter  {
+    constructor (
+        readonly client: string,
+        private details: string,
+        public amount: number
+    ){}
+
+    format() {
+        return `${this.client} owes ${this.amount} for ${this.details}`
     }
 }
 ```
+* Interface importeren
+* Implementeert de interface succesvol dankzij format functie die string returnt
 
-Interface als type aan lege var geven
+### Interface toepassen op array
 ```javascript
-let diejen: isPerson
-```
-
-Interface aan functie parameter geven
-```javascript
-const greetPerson = (person: isPerson) => {
-    console.log('Hello', person.name)
-}
-greetPerson(me)
+let docs: HasFormatter[] = []
+docs.push(docOne)
 ```
