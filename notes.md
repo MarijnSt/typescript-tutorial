@@ -50,7 +50,7 @@ const invOne = new Invoice('mario', 'webdev', 250)
 ```
 * Beginnen met properties hun type te geven
 * Constructor declareren
-* Properties zijn default public: je kan ze overal in de code aanpassen
+* Properties zijn default public: je kan ze overal in de code aanpassen 
 
 ### Class objects verzamelen in array
 ```javascript
