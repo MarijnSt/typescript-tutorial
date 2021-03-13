@@ -1,40 +1,33 @@
-L12 geskipt in branches
+Importeren en exporteren in verschillende bestanden
 
-## Access modifier
+In tsconfig:
+```
+"target": es6,
+"module": "es2015",
+```
+* Target --> modules enkel ondersteund door moderne browsers dus es6 ipv 5
+ 
+In html aanduiden dat script een module is:
+```
+<script type="module" src='app.js'></script>
+```
+
+## Class exporteren uit Invoice.ts:
 ```javascript
-class Invoice {
-    readonly client: string;
-    private details: string;
-    public amount: number;
-
-    constructor (c: string, d: string, a: number) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
-
-    format() {
-        return `${this.client} owes ${this.amount} for ${this.details}`;
-    }
+export class Invoice {
+    // constructor, methods van class
 }
 ```
-* Public (default): property lees- en aanpasbaar **binnen en buiten class**
-* Readonly: property **leesbaar** binnen en buiten class, niet meer aan te passen
-* Private: property lees- en aanpasbaar **enkel binnen class**
-
-## Shorthand voor classes
-Je kan een shorthand schrijven wanneer je access modifiers gebruikt voor je properties
+## Class importeren in app.ts
 ```javascript
-class Invoice {
-    constructor (
-        readonly client: string,
-        private details: string,
-        public amount: number
-    ){}
-
-    format() {
-        return `${this.client} owes ${this.amount} for ${this.details}`
-    }
-}
+import {Invoice} from './classes/Invoice.js'
 ```
-Zal automatisch de waardes van de parameters toekennen aan de properties
+* Binnen {} de naam van wat je export geven
+* Linken naar **JS** bestand omdat het in de front niet ts maar js bestanden zijn
+
+## Nadelen
+* Modules enkel ondersteund door moderne browsers
+* Meerdere bestanden linken = meerdere requests
+
+### Oplossing: webpack
+Alle bestanden samenbrengen in 1 bestand met support voor alle browsers
