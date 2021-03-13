@@ -1,19 +1,4 @@
-// class declareren
-class Invoice {
-    // readonly client: string
-    // private details: string
-    // public amount: number
-
-    constructor (
-        readonly client: string,
-        private details: string,
-        public amount: number
-    ){}
-
-    format() {
-        return `${this.client} owes ${this.amount} for ${this.details}`
-    }
-}
+import {Invoice} from './classes/Invoice.js'
 
 // objecten aanmaken via class
 const invOne = new Invoice('mario', 'webdev', 250)
